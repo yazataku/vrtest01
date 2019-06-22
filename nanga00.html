@@ -6,7 +6,18 @@
 </head>
 <body style='margin: 0; overflow: hidden;'>
 <!-- ③ シーンを追加 -->
-<a-scene embedded arjs>
+<!-- AR.jsのデバックとA-FrameのVRボタンを非表示 -->
+  <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
+
+  <a-assets>
+    <!-- 画像をプリロード -->
+    <img id="kinga_sinnen" src="images/kinga_sinnen.png">
+    <!-- 3Dモデルをプリロード -->
+     <!--<a-asset-item id="uribo" src="assets/uribo.glb"></a-asset-item>-->
+  </a-assets>
+
+
+
   <!-- ④ マーカーを追加 ここから -->
   <a-marker preset="hiro">
     <!-- ⑤ オブジェクトの追加 -->
@@ -23,8 +34,20 @@
     <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#f00">
       <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
       </a-animation>
+
+	  <a-entity>
+      <!-- idを指定して画像を表示、x軸回りで-90度回転 -->
+      <a-image src="#kinga_sinnen" width="2" height="2" rotation="-90 0 0"></a-image>
+      <!-- a-imageを内包するa-entityをy軸周りで360度回転するアニメーション -->
+      <!-- dur(間隔):4000(ms), repeat(繰り返し):止めない限り無限, easing(イージング):線形(イージングしない)-->
+      <a-animation attribute="rotation" to="0 360 0" dur="4000" repeat="indefinite" easing="linear"></a-animation>
+    </a-entity>
+
+
     </a-sphere>
   </a-marker>
+
+  
 
 
   <!-- ⑥ カメラを追加 -->
