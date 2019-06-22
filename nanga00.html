@@ -3,6 +3,8 @@
   <!-- ① スクリプトの読み込み -->
   <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+   <!-- glTFに含まれたアニメーションを再生するためにaframe-extrasをロード -->
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
 </head>
 <body style='margin: 0; overflow: hidden;'>
 <!-- ③ シーンを追加 -->
@@ -13,7 +15,7 @@
     <!-- 画像をプリロード -->
     <img id="kinga_sinnen" src="images/kinga_sinnen.png">
     <!-- 3Dモデルをプリロード -->
-     <!--<a-asset-item id="uribo" src="assets/uribo.glb"></a-asset-item>-->
+     <a-asset-item id="nezumi" src="assets/nezumi.glb"></a-asset-item>
   </a-assets>
 
 
@@ -31,10 +33,15 @@
 
 
    <a-marker type='pattern' url='marker/ishii_logo.patt'>
-    <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#f00">
+    <!--<a-sphere scale=".25 .25 .25" position="0 .5 0" color="#f00"
       <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
       </a-animation>
-	</a-sphere>
+	</a-sphere>-->
+
+	<!-- idを指定して3Dモデルを表示 -->
+    <a-entity gltf-model="#nezumi" scale="0.1 0.1 0.1" animation-mixer></a-entity>
+    <a-entity>
+
 	 <a-entity>
       <!-- idを指定して画像を表示、x軸回りで-90度回転 -->
       <a-image src="#kinga_sinnen" width="2" height="2" rotation="-90 0 0"></a-image>
