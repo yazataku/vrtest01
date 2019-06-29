@@ -40,7 +40,12 @@
 
 	<!-- idを指定して3Dモデルを表示 -->
     <a-entity gltf-model="#nezumi" scale="0.1 0.1 0.1" animation-mixer></a-entity>
-    <a-entity>
+	
+	<!-- ↓実験アニメーションを追加して見る20190629 ↓-->
+	<a-animation attribute="position" direction="alternate" dur="4000" to="0 5 0" repeat="indefinite"></a-animation>
+    <!-- ↑実験アニメーションを追加して見る20190629 ↑-->
+
+	<a-entity>
 
 	 <a-entity>
       <!-- idを指定して画像を表示、x軸回りで-90度回転 -->
