@@ -20,7 +20,9 @@
     <!-- 3Dモデルをプリロード -->
      <a-asset-item id="nezumi" src="assets/nezumi.glb"></a-asset-item>
   </a-assets>
-
+   <!-- 表彰状 -->
+  <a-asset-item id="hyousyou" src="assets/hyousyou.glb"></a-asset-item>
+</a-assets>
 
 
   <!-- ④ マーカーを追加 ここから -->
@@ -28,11 +30,13 @@
     <!-- ⑤ オブジェクトの追加 -->
 	<!-- Particle system uses 'default' preset, setting custom colors. -->
       <a-entity position="0 .05 0" particle-system="preset:star; color: #ffff7f,#ff1493"></a-entity>
+      <a-entity gltf-model="#hyousyou" position="0 0.01 0.05" rotation="0 0 0" scale="0.025 0.025 0.025" animation-mixer>
     <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#111">
       <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
       </a-animation>
     </a-sphere>
   </a-marker>
+
 
 
 
@@ -50,7 +54,7 @@
 
 	<!-- idを指定して3Dモデルを表示 -->
     <a-entity gltf-model="#nezumi" position="0 0 -.5"rotation="0 90 -90" scale="0.025 0.025 0.025" animation-mixer>
-	
+
 	<!-- ↓実験アニメーションを追加して見る20190629 ↓-->
 	<a-animation attribute="position" direction="alternate" dur="4000" to="0 5 0" repeat="indefinite"></a-animation>
     <!-- ↑実験アニメーションを追加して見る20190629 ↑-->
@@ -67,7 +71,7 @@
     </a-entity>
   </a-marker>
 
-  
+
 
 
   <!-- ⑥ カメラを追加 -->
